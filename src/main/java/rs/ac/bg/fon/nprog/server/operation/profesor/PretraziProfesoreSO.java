@@ -5,10 +5,24 @@ import rs.ac.bg.fon.nprog.common.domain.Profesor;
 import java.util.List;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
 
+/**
+ * Klasa koja predstavlja konkretnu sistemsku operaciju za vracanje svih
+ * profesora iz baze podataka koji odgovaraju kriterijumima pretrage.
+ * 
+ * @author Maja
+ * @version 0.1
+ */
 public class PretraziProfesoreSO extends AbstractGenericOperation {
 
+	/**
+	 * Privatni atribut list tipa List{@literal <GenericEntity>} koji predstavlja
+	 * listu generickih objekata koje operacija treba da vrati.
+	 */
 	private List<GenericEntity> list;
 
+	/**
+	 * Proverava da li je prosledjeni parametar klase Profesor.
+	 */
 	@Override
 	protected void preconditions(Object param) throws Exception {
 		if (!(param instanceof Profesor)) {
@@ -16,11 +30,19 @@ public class PretraziProfesoreSO extends AbstractGenericOperation {
 		}
 	}
 
+	/**
+	 * Poziva brokera baze da pronadje listu profesora koji odgovaraju pretrazi.
+	 */
 	@Override
 	protected void executeOperation(Object param) throws Exception {
 		list = repository.getAll(param);
 	}
 
+	/**
+	 * Vraca privatni atribut list.
+	 * 
+	 * @return list kao List{@literal <GenericEntity>}
+	 */
 	public List<GenericEntity> getList() {
 		return list;
 	}
