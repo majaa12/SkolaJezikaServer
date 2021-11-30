@@ -13,6 +13,9 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  */
 public class LoginSO extends AbstractGenericOperation {
 
+	/**
+	 * Atribut entity klase GenericEntity.
+	 */
 	GenericEntity entity;
 
 	/**
