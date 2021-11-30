@@ -4,10 +4,20 @@ import rs.ac.bg.fon.nprog.common.domain.Administrator;
 import rs.ac.bg.fon.nprog.common.domain.GenericEntity;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
 
+/**
+ * Klasa koja predstavlja konkretnu sistemsku operaciju za prijavljivanje
+ * administratora na sistem.
+ * 
+ * @author Maja
+ * @version 0.1
+ */
 public class LoginSO extends AbstractGenericOperation {
 
 	GenericEntity entity;
 
+	/**
+	 * Proverava da li je prosledjeni parametar klase Administrator.
+	 */
 	@Override
 	protected void preconditions(Object param) throws Exception {
 		if (!(param instanceof Administrator)) {
@@ -15,11 +25,20 @@ public class LoginSO extends AbstractGenericOperation {
 		}
 	}
 
+	/**
+	 * Poziva brokera baze da pronadje administratora sa kredencijalima koje ima i
+	 * prosledjeni objekat.
+	 */
 	@Override
 	protected void executeOperation(Object param) throws Exception {
 		entity = (Administrator) repository.get(param);
 	}
 
+	/**
+	 * Vraca privatni atribut entity.
+	 * 
+	 * @return entity kao GenericEntity
+	 */
 	public GenericEntity getEntity() {
 		return entity;
 	}
