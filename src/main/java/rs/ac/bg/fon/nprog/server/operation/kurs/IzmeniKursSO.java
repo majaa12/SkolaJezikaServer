@@ -7,8 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
 
+/**
+ * Klasa koja predstavlja konkretnu sistemsku operaciju za izmenu postojeceg
+ * kursa iz baze podataka.
+ * 
+ * @author Maja
+ * @version 0.1
+ */
 public class IzmeniKursSO extends AbstractGenericOperation {
 
+	/**
+	 * Proverava da li je prosledjeni parametar klase Kurs.
+	 */
 	@Override
 	protected void preconditions(Object param) throws Exception {
 		if (!(param instanceof Kurs)) {
@@ -16,6 +26,11 @@ public class IzmeniKursSO extends AbstractGenericOperation {
 		}
 	}
 
+	/**
+	 * Poziva brokera baze da izmeni kurs prosledjen kao parametar ove metode. Zatim
+	 * prolazi kroz listu njegovih termina i neke od njih brise, neke menja, a nove
+	 * termine dodaje u listu.
+	 */
 	@Override
 	protected void executeOperation(Object param) throws Exception {
 		repository.edit(param);
