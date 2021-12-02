@@ -6,6 +6,7 @@ import rs.ac.bg.fon.nprog.common.domain.TerminKursa;
 import java.util.ArrayList;
 import java.util.List;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
+import rs.ac.bg.fon.nprog.server.repository.Repository;
 
 /**
  * Klasa koja predstavlja konkretnu sistemsku operaciju za vracanje svih kurseva
@@ -15,6 +16,24 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  * @version 0.1
  */
 public class PretraziKurseveSO extends AbstractGenericOperation {
+
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase PretraziKurseveSO i
+	 * poziva parametarski konstruktor nadklase sa prosledjenim repository objektom
+	 * 
+	 * @param repository koji izvrsava operacije nad bazom.
+	 */
+	public PretraziKurseveSO(Repository repository) {
+		super(repository);
+	}
+
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase
+	 * PretraziKurseveSO.
+	 */
+	public PretraziKurseveSO() {
+
+	}
 
 	/**
 	 * Privatni atribut list tipa List{@literal <GenericEntity>} koji predstavlja

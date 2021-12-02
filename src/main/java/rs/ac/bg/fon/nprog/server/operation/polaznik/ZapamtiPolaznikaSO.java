@@ -2,6 +2,7 @@ package rs.ac.bg.fon.nprog.server.operation.polaznik;
 
 import rs.ac.bg.fon.nprog.common.domain.Polaznik;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
+import rs.ac.bg.fon.nprog.server.repository.Repository;
 
 /**
  * Klasa koja predstavlja konkretnu sistemsku operaciju za dodavanje novog
@@ -12,6 +13,23 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  */
 public class ZapamtiPolaznikaSO extends AbstractGenericOperation {
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase ZapamtiPolaznikaSO i
+	 * poziva parametarski konstruktor nadklase sa prosledjenim repository objektom
+	 * 
+	 * @param repository koji izvrsava operacije nad bazom.
+	 */
+	public ZapamtiPolaznikaSO(Repository repository) {
+		super(repository);
+	}
+
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase ZapamtiPolaznikaSO.
+	 */
+	public ZapamtiPolaznikaSO() {
+
+	}
+	
 	/**
 	 * Proverava da li je prosledjeni parametar klase Polaznik.
 	 */

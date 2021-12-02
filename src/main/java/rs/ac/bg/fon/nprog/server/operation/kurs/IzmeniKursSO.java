@@ -6,6 +6,7 @@ import rs.ac.bg.fon.nprog.common.domain.TerminKursa;
 import java.util.ArrayList;
 import java.util.List;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
+import rs.ac.bg.fon.nprog.server.repository.Repository;
 
 /**
  * Klasa koja predstavlja konkretnu sistemsku operaciju za izmenu postojeceg
@@ -16,6 +17,23 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  */
 public class IzmeniKursSO extends AbstractGenericOperation {
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase IzmeniKursSO i
+	 * poziva parametarski konstruktor nadklase sa prosledjenim repository objektom
+	 * 
+	 * @param repository koji izvrsava operacije nad bazom.
+	 */
+	public IzmeniKursSO(Repository repository) {
+		super(repository);
+	}
+
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase IzmeniKursSO.
+	 */
+	public IzmeniKursSO() {
+
+	}
+	
 	/**
 	 * Proverava da li je prosledjeni parametar klase Kurs.
 	 */

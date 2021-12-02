@@ -4,6 +4,7 @@ import rs.ac.bg.fon.nprog.common.domain.GenericEntity;
 import rs.ac.bg.fon.nprog.common.domain.Profesor;
 import java.util.List;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
+import rs.ac.bg.fon.nprog.server.repository.Repository;
 
 /**
  * Klasa koja predstavlja konkretnu sistemsku operaciju za vracanje svih
@@ -13,6 +14,25 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  * @version 0.1
  */
 public class PretraziProfesoreSO extends AbstractGenericOperation {
+
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase PretraziProfesoreSO
+	 * i poziva parametarski konstruktor nadklase sa prosledjenim repository
+	 * objektom
+	 * 
+	 * @param repository koji izvrsava operacije nad bazom.
+	 */
+	public PretraziProfesoreSO(Repository repository) {
+		super(repository);
+	}
+
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase
+	 * PretraziProfesoreSO.
+	 */
+	public PretraziProfesoreSO() {
+
+	}
 
 	/**
 	 * Privatni atribut list tipa List{@literal <GenericEntity>} koji predstavlja
