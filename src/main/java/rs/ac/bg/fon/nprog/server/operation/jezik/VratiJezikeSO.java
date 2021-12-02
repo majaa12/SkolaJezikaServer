@@ -4,6 +4,7 @@ import rs.ac.bg.fon.nprog.common.domain.GenericEntity;
 import rs.ac.bg.fon.nprog.common.domain.Jezik;
 import java.util.List;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
+import rs.ac.bg.fon.nprog.server.repository.Repository;
 
 /**
  * Klasa koja predstavlja konkretnu sistemsku operaciju za vracanje svih jezika
@@ -14,6 +15,24 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  */
 public class VratiJezikeSO extends AbstractGenericOperation {
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase VratiJezikeSO i
+	 * poziva parametarski konstruktor nadklase sa prosledjenim repository objektom
+	 * 
+	 * @param repository koji izvrsava operacije nad bazom.
+	 */
+	public VratiJezikeSO(Repository repository) {
+		super(repository);
+	}
+
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase VratiJezikeSO.
+	 */
+	public VratiJezikeSO() {
+
+	}
+	
+	
 	/**
 	 * Privatni atribut list tipa List{@literal <GenericEntity>} koji predstavlja
 	 * listu generickih objekata koje operacija treba da vrati.

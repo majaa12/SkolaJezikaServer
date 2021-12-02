@@ -17,7 +17,7 @@ import rs.ac.bg.fon.nprog.common.domain.Jezik;
 import rs.ac.bg.fon.nprog.server.repository.Repository;
 import rs.ac.bg.fon.nprog.server.repository.db.impl.RepositoryDBGeneric;
 
-class VratiAdreseSOTest {
+public class VratiAdreseSOTest {
 
 	private VratiAdreseSO operation;
 	private Repository repository;
