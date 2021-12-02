@@ -4,6 +4,7 @@ import rs.ac.bg.fon.nprog.common.domain.GenericEntity;
 import rs.ac.bg.fon.nprog.common.domain.Grad;
 import java.util.List;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
+import rs.ac.bg.fon.nprog.server.repository.Repository;
 
 /**
  * Klasa koja predstavlja konkretnu sistemsku operaciju za vracanje svih gradova
@@ -14,6 +15,24 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  */
 public class VratiGradoveSO extends AbstractGenericOperation {
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase VratiGradoveSO i
+	 * poziva parametarski konstruktor nadklase sa prosledjenim repository objektom
+	 * 
+	 * @param repository koji izvrsava operacije nad bazom.
+	 */
+	public VratiGradoveSO(Repository repository) {
+		super(repository);
+	}
+
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase VratiGradoveSO.
+	 */
+	public VratiGradoveSO() {
+
+	}
+	
+	
 	/**
 	 * Privatni atribut list tipa List{@literal <GenericEntity>} koji predstavlja
 	 * listu generickih objekata koje operacija treba da vrati.
