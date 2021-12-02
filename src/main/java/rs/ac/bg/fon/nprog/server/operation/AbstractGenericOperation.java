@@ -20,12 +20,20 @@ public abstract class AbstractGenericOperation {
 	protected final Repository repository;
 
 	/**
-	 * Besparametarski konstruktor koji inicijalizuje objekat klase
-	 * AbstractGenericOperation i inicijalizuje atribut repository kao objekat klase
-	 * RepositoryDBGeneric.
+	 * Besparametarski konstruktor koji inicijalizuje atribut 
+	 * repository kao objekat klase RepositoryDBGeneric.
 	 */
 	public AbstractGenericOperation() {
 		this.repository = new RepositoryDBGeneric();
+	}
+	
+	/**
+	 * Parametarski konstruktor koji inicijalizuje atribut repository
+	 * na prosledjeni repository objekat.
+	* @param repository koji izvrsava operacije nad bazom
+	 */
+	public AbstractGenericOperation(Repository repository) {
+		this.repository = repository;
 	}
 
 	/**

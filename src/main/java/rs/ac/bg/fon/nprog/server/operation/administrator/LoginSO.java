@@ -3,6 +3,7 @@ package rs.ac.bg.fon.nprog.server.operation.administrator;
 import rs.ac.bg.fon.nprog.common.domain.Administrator;
 import rs.ac.bg.fon.nprog.common.domain.GenericEntity;
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
+import rs.ac.bg.fon.nprog.server.repository.Repository;
 
 /**
  * Klasa koja predstavlja konkretnu sistemsku operaciju za prijavljivanje
@@ -12,6 +13,23 @@ import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
  * @version 0.1
  */
 public class LoginSO extends AbstractGenericOperation {
+
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase LoginSO i poziva
+	 * parametarski konstruktor nadklase sa prosledjenim repository objektom
+	 * 
+	 * @param repository koji izvrsava operacije nad bazom.
+	 */
+	public LoginSO(Repository repository) {
+		super(repository);
+	}
+
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase LoginSO.
+	 */
+	public LoginSO() {
+
+	}
 
 	/**
 	 * Atribut entity klase GenericEntity.
