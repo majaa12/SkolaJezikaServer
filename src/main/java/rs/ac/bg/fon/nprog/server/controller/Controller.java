@@ -10,8 +10,16 @@ import rs.ac.bg.fon.nprog.common.domain.Polaznik;
 import rs.ac.bg.fon.nprog.common.domain.Profesor;
 import rs.ac.bg.fon.nprog.common.domain.Upis;
 import rs.ac.bg.fon.nprog.server.forms.FrmMainServer;
+
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 import rs.ac.bg.fon.nprog.server.operation.AbstractGenericOperation;
 import rs.ac.bg.fon.nprog.server.operation.adresa.VratiAdreseSO;
 import rs.ac.bg.fon.nprog.server.operation.grad.VratiGradoveSO;
@@ -338,5 +346,28 @@ public class Controller {
 	public void obrisiUpis(Upis upis) throws Exception {
 		AbstractGenericOperation so = new ObrisiUpisSO();
 		so.execute(upis);
+		sacuvajUJsonFile(upis);
+	}
+
+	private void sacuvajUJsonFile(Upis upis) {
+		try (FileWriter file = new FileWriter("obrisani_upisi.json", true)) {
+
+			JsonObject obj = new JsonObject();
+			
+			obj.addProperty("Datum upisa", upis.getDatumUpis().toString());
+			obj.addProperty("Polaznik", upis.getPolaznik().toString());
+			obj.addProperty("Kurs", upis.getTerminKursa().getKurs().getNaziv());
+			obj.addProperty("Nivo kursa", upis.getTerminKursa().getKurs().getNivo().toString());
+			obj.addProperty("Tip kursa", upis.getTerminKursa().getKurs().getTipKursa().toString());
+			obj.addProperty("Termin kursa", upis.getTerminKursa().toString());
+		
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			
+			gson.toJson(obj, file);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
