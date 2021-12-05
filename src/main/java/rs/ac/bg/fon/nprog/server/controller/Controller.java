@@ -335,9 +335,10 @@ public class Controller {
 		return ((PretraziUpiseSO) so).getList();
 	}
 
+	
 	/**
 	 * Istancira i poziva sistemsku operaciju za brisanje postojeceg upisa iz baze
-	 * podataka.
+	 * podataka. Zatim poziva privatunu metodu za upisivanje u Json fajl.
 	 * 
 	 * @param upis Objekat klase Upis koga treba obrisati iz baze.
 	 * @throws Exception ukoliko dodje do greske tokom izvrsavanja sistemske
@@ -349,6 +350,11 @@ public class Controller {
 		sacuvajUJsonFile(upis);
 	}
 
+	/**
+	 * Vrsi serijalizaciju obrisanog objekta upis u JSON fajl.
+	 * 
+	 * @param upis Objekat klase Upis koga treba upisati u JSON fajl.
+	 */
 	private void sacuvajUJsonFile(Upis upis) {
 		try (FileWriter file = new FileWriter("obrisani_upisi.json", true)) {
 
