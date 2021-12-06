@@ -1,45 +1,41 @@
 package rs.ac.bg.fon.nprog.server.operation.adresa;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import rs.ac.bg.fon.nprog.common.domain.Adresa;
-
+import rs.ac.bg.fon.nprog.common.domain.GenericEntity;
 import rs.ac.bg.fon.nprog.common.domain.Grad;
 import rs.ac.bg.fon.nprog.common.domain.Jezik;
-import rs.ac.bg.fon.nprog.server.repository.Repository;
-import rs.ac.bg.fon.nprog.server.repository.db.impl.RepositoryDBGeneric;
 
 public class VratiAdreseSOTest {
 
 	private VratiAdreseSO operation;
-	private Repository repository;
 	private Adresa adresa;
+	private Adresa a;
 	private Grad grad;
 	private ArrayList<Adresa> adrese;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		repository = mock(RepositoryDBGeneric.class);
-		operation = new VratiAdreseSO(repository);
+		operation = new VratiAdreseSO();
+		grad = new Grad(1l, "Beograd", null);
 		adrese = new ArrayList<>();
-		grad = new Grad(1l, "Beograd", adrese);
-		adresa = new Adresa(1l, "Makedonska", 8, grad);
+		adresa = new Adresa(1l, "Vojvode Stepe", 33, grad);
 		adrese.add(adresa);
-
+		a = new Adresa(2l, "Narodnih heroja", 50, grad);
+		adrese.add(a);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		operation = null;
-		repository = null;
 		adrese = null;
 		grad = null;
 		adresa = null;
@@ -59,10 +55,10 @@ public class VratiAdreseSOTest {
 
 	@Test
 	void executeOperation_successful() throws Exception {
-		Mockito.doReturn(adrese).when(repository).getAll(Mockito.any(Adresa.class));
-
-		operation.executeOperation(adresa);
-		assertEquals(adrese, operation.getList());
+		operation.execute(adresa);
+		List<GenericEntity> list = operation.getList();
+		assertEquals(2, list.size());
+		assertEquals(adrese, list);
 	}
 
 }
